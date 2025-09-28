@@ -1,0 +1,125 @@
+{
+  "id": "hemodynamics-basics-principles-quiz",
+  "title": "Quiz: Princípios da Hemodinâmica",
+  "description": "Teste seus conhecimentos sobre os fundamentos da hemodinâmica cardíaca",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "Durante a contração isovolumétrica, observamos:",
+      "options": [
+        "Volume ventricular aumentando com pressão constante",
+        "Volume ventricular constante com pressão aumentando",
+        "Volume e pressão aumentando simultaneamente",
+        "Volume e pressão diminuindo simultaneamente"
+      ],
+      "correct_answer": 1,
+      "explanation": "Na contração isovolumétrica, todas as valvas estão fechadas, mantendo volume constante enquanto a pressão ventricular aumenta até a abertura da valva semilunar."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "A Lei de Frank-Starling estabelece que:",
+      "options": [
+        "Maior frequência cardíaca resulta em maior débito",
+        "Maior pré-carga resulta em maior força de contração",
+        "Maior pós-carga resulta em maior volume sistólico",
+        "Maior contractilidade resulta em maior pré-carga"
+      ],
+      "correct_answer": 1,
+      "explanation": "A Lei de Frank-Starling estabelece que, dentro de limites fisiológicos, o aumento da pré-carga (estiramento das fibras miocárdicas) resulta em maior força de contração."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "O débito cardíaco normal em repouso é aproximadamente:",
+      "options": [
+        "2-3 L/min",
+        "4-8 L/min",
+        "10-12 L/min",
+        "15-20 L/min"
+      ],
+      "correct_answer": 1,
+      "explanation": "O débito cardíaco normal em adultos em repouso varia entre 4-8 L/min, calculado como volume sistólico × frequência cardíaca."
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "A fração de ejeção normal do ventrículo esquerdo é:",
+      "options": [
+        "≥ 35%",
+        "≥ 45%",
+        "≥ 55%",
+        "≥ 75%"
+      ],
+      "correct_answer": 2,
+      "explanation": "A fração de ejeção normal do VE é ≥55%, calculada como (volume sistólico ÷ volume diastólico final) × 100."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "Durante a ejeção ventricular, a maior parte do volume é ejetada:",
+      "options": [
+        "No final da sístole",
+        "Uniformemente durante toda a sístole",
+        "No primeiro terço da sístole",
+        "Apenas durante a contração isovolumétrica"
+      ],
+      "correct_answer": 2,
+      "explanation": "Durante a ejeção rápida (primeiro terço da sístole), aproximadamente 70% do volume sistólico é ejetado, com o restante sendo ejetado mais lentamente."
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "A terceira bulha cardíaca (S3) ocorre durante:",
+      "options": [
+        "Contração atrial",
+        "Enchimento ventricular rápido",
+        "Ejeção ventricular",
+        "Relaxamento isovolumétrico"
+      ],
+      "correct_answer": 1,
+      "explanation": "A terceira bulha (S3) ocorre durante o enchimento ventricular rápido e, quando patológica, indica disfunção ventricular ou sobrecarga de volume."
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "A pós-carga ventricular esquerda é melhor representada por:",
+      "options": [
+        "Pressão atrial esquerda",
+        "Volume diastólico final",
+        "Pressão arterial sistólica",
+        "Frequência cardíaca"
+      ],
+      "correct_answer": 2,
+      "explanation": "A pós-carga é a tensão na parede ventricular durante a ejeção, clinicamente estimada pela pressão arterial sistólica e resistência vascular sistêmica."
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "Na alça pressão-volume, a área interna representa:",
+      "options": [
+        "Volume sistólico",
+        "Trabalho ventricular",
+        "Pressão desenvolvida",
+        "Contractilidade"
+      ],
+      "correct_answer": 1,
+      "explanation": "A área interna da alça pressão-volume representa o trabalho ventricular (pressão × volume), ou seja, a energia gasta pelo ventrículo para ejetar sangue."
+    }
+  ],
+  "scoring": {
+    "total_points": 8,
+    "passing_score": 6,
+    "time_limit_minutes": 15
+  },
+  "metadata": {
+    "difficulty": "intermediate",
+    "estimated_time": "10-12 minutos", 
+    "learning_objectives": [
+      "Compreender fases do ciclo cardíaco",
+      "Interpretar parâmetros hemodinâmicos normais",
+      "Aplicar princípios fundamentais da função cardíaca"
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "ecg-basics-intro-quiz",
+  "title": "Quiz: Fundamentos do ECG",
+  "description": "Teste seus conhecimentos sobre os conceitos básicos do eletrocardiograma",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "Qual estrutura é considerada o marcapasso natural do coração?",
+      "options": [
+        "Nó atrioventricular",
+        "Nó sinoatrial", 
+        "Feixe de His",
+        "Fibras de Purkinje"
+      ],
+      "correct_answer": 1,
+      "explanation": "O nó sinoatrial (SA) é o marcapasso natural do coração, gerando impulsos elétricos regulares que iniciam cada batimento cardíaco."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice", 
+      "question": "A onda P no ECG representa:",
+      "options": [
+        "Despolarização ventricular",
+        "Repolarização atrial",
+        "Despolarização atrial",
+        "Repolarização ventricular"
+      ],
+      "correct_answer": 2,
+      "explanation": "A onda P representa a despolarização atrial, ou seja, a ativação elétrica dos átrios."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "O intervalo PR normal varia entre:",
+      "options": [
+        "0,08-0,12 segundos",
+        "0,12-0,20 segundos",
+        "0,20-0,30 segundos", 
+        "0,30-0,40 segundos"
+      ],
+      "correct_answer": 1,
+      "explanation": "O intervalo PR normal varia entre 0,12-0,20 segundos, representando o tempo de condução do impulso do nó SA ao nó AV."
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "Quantas derivações possui um ECG de 12 derivações?",
+      "options": [
+        "6 derivações",
+        "10 derivações",
+        "12 derivações",
+        "15 derivações"
+      ],
+      "correct_answer": 2,
+      "explanation": "Um ECG padrão possui 12 derivações: 6 dos membros (I, II, III, aVR, aVL, aVF) e 6 precordiais (V1-V6)."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "A duração normal do complexo QRS é:",
+      "options": [
+        "Menor que 0,08 segundos",
+        "Menor que 0,12 segundos",
+        "Entre 0,12-0,20 segundos",
+        "Maior que 0,20 segundos"
+      ],
+      "correct_answer": 1,
+      "explanation": "A duração normal do complexo QRS é menor que 0,12 segundos, indicando condução intraventricular normal."
+    }
+  ],
+  "scoring": {
+    "total_points": 5,
+    "passing_score": 3,
+    "time_limit_minutes": 10
+  },
+  "metadata": {
+    "difficulty": "beginner",
+    "estimated_time": "5-8 minutos",
+    "learning_objectives": [
+      "Identificar componentes básicos do ECG",
+      "Compreender sistema de condução cardíaca",
+      "Reconhecer valores normais de intervalos"
+    ]
+  }
+}

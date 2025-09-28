@@ -1,0 +1,20 @@
+id: ecg-basics
+title: "ECG Básico - Fundamentos da Eletrocardiografia"
+version: "1.0.0"
+objectives:
+  - "Compreender os princípios básicos da eletrofisiologia cardíaca"
+  - "Identificar as ondas, intervalos e segmentos do ECG normal"
+  - "Reconhecer variações normais do ECG"
+  - "Determinar eixo elétrico básico"
+  - "Identificar arritmias simples"
+subskills:
+  - "Anatomia cardíaca aplicada"
+  - "Sistema de condução"
+  - "Morfologia das ondas"
+  - "Medição de intervalos"
+  - "Interpretação sistemática"
+prerequisites:
+  - "Anatomia cardiovascular básica"
+  - "Fisiologia cardíaca fundamental"
+estimated_time_hours: 8
+disclaimer: "Este módulo fornece conhecimentos fundamentais sobre ECG. Sempre consulte diretrizes atualizadas e supervisão médica para interpretação clínica."

@@ -1,0 +1,38 @@
+{
+  "name": "mega-monorepo",
+  "version": "0.1.0",
+  "description": "MEGA - Medical Education with Generative AI",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter mega-web dev",
+    "build": "pnpm --filter mega-web build",
+    "start": "pnpm --filter mega-web start",
+    "lint": "pnpm --parallel lint",
+    "test": "pnpm --parallel test",
+    "clean": "pnpm --parallel clean"
+  },
+  "keywords": [
+    "medical-education",
+    "ai",
+    "generative-ai",
+    "llm",
+    "education",
+    "medicine"
+  ],
+  "author": "MEGA Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5",
+    "eslint": "^8",
+    "prettier": "^3"
+  }
+}

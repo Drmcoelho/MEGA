@@ -1,0 +1,21 @@
+id: hemodynamics-basics
+title: "Hemodinâmica Básica - Fundamentos da Função Cardíaca"
+version: "1.0.0"
+objectives:
+  - "Compreender princípios fundamentais da hemodinâmica cardíaca"
+  - "Interpretar curvas de pressão e volumes cardíacos"
+  - "Analisar o ciclo cardíaco e suas fases"
+  - "Correlacionar parâmetros hemodinâmicos com manifestações clínicas"
+  - "Identificar padrões patológicos básicos na hemodinâmica"
+subskills:
+  - "Interpretação de curvas pressóricas"
+  - "Análise do ciclo cardíaco"
+  - "Cálculo de parâmetros derivados"
+  - "Correlação anatomo-funcional"
+  - "Diagnóstico hemodinâmico"
+prerequisites:
+  - "Anatomia cardiovascular"
+  - "Fisiologia cardíaca"
+  - "Conceitos básicos de física aplicada"
+estimated_time_hours: 14
+disclaimer: "Este módulo apresenta fundamentos de hemodinâmica para fins educacionais. A interpretação de dados hemodinâmicos em pacientes reais requer treinamento especializado e supervisão médica."

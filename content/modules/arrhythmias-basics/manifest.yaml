@@ -1,0 +1,20 @@
+id: arrhythmias-basics
+title: "Arritmias Básicas - Fundamentos do Diagnóstico"
+version: "1.0.0"
+objectives:
+  - "Classificar arritmias por origem anatômica"
+  - "Identificar arritmias supraventriculares comuns"
+  - "Reconhecer arritmias ventriculares básicas"
+  - "Compreender mecanismos de formação das arritmias"
+  - "Aplicar abordagem sistemática ao diagnóstico arrítmico"
+subskills:
+  - "Análise de ritmo"
+  - "Identificação morfológica"
+  - "Diagnóstico diferencial"
+  - "Estratificação de urgência"
+  - "Correlação clínica"
+prerequisites:
+  - "ECG Básico - Fundamentos da Eletrocardiografia"
+  - "Eletrofisiologia cardíaca básica"
+estimated_time_hours: 10
+disclaimer: "Este módulo aborda arritmias básicas para fins educacionais. O reconhecimento e tratamento de arritmias requer supervisão médica especializada e consideração do contexto clínico."

@@ -1,0 +1,112 @@
+{
+  "id": "arrhythmias-basics-classification-quiz",
+  "title": "Quiz: Classificação das Arritmias", 
+  "description": "Teste seu conhecimento sobre classificação e mecanismos das arritmias cardíacas",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "Qual característica ECG diferencia principalmente arritmias supraventriculares das ventriculares?",
+      "options": [
+        "Frequência cardíaca",
+        "Regularidade do ritmo",
+        "Largura do complexo QRS",
+        "Presença de ondas P"
+      ],
+      "correct_answer": 2,
+      "explanation": "A largura do QRS é o principal diferenciador: supraventriculares geralmente apresentam QRS < 0,12s, enquanto ventriculares têm QRS ≥ 0,12s."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "O mecanismo de reentrada requer:",
+      "options": [
+        "Apenas automaticidade aumentada",
+        "Circuito com condução unidirecional e velocidade adequada",
+        "Sobrecarga de cálcio intracelular",
+        "Apenas despolarizações espontâneas"
+      ],
+      "correct_answer": 1,
+      "explanation": "A reentrada requer um circuito com duas vias, bloqueio unidirecional e condução suficientemente lenta para permitir recuperação da via bloqueada."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "Na fibrilação atrial, caracteristicamente observamos:",
+      "options": [
+        "Ondas P regulares e QRS irregular",
+        "Ausência de ondas P e RR irregular",
+        "Ondas F em dente de serra",
+        "QRS largo e bizarre"
+      ],
+      "correct_answer": 1,
+      "explanation": "A fibrilação atrial caracteriza-se pela ausência de ondas P organizadas, presença de ondas fibrilatórias e intervalos RR irregulares."
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "Torsades de pointes está associada a:",
+      "options": [
+        "QT curto",
+        "QT prolongado",
+        "Intervalo PR longo",
+        "QRS estreito"
+      ],
+      "correct_answer": 1,
+      "explanation": "Torsades de pointes é uma taquicardia ventricular polimorfa associada ao prolongamento do intervalo QT, causada por pós-despolarizações precoces."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "Qual arritmia requer desfibrilação elétrica imediata?",
+      "options": [
+        "Fibrilação atrial",
+        "Flutter atrial",
+        "Fibrilação ventricular",
+        "Taquicardia supraventricular"
+      ],
+      "correct_answer": 2,
+      "explanation": "A fibrilação ventricular representa parada cardíaca e requer desfibrilação elétrica imediata para restaurar ritmo efetivo."
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "A frequência típica do flutter atrial é:",
+      "options": [
+        "150 bpm",
+        "200 bpm", 
+        "300 bpm",
+        "400 bpm"
+      ],
+      "correct_answer": 2,
+      "explanation": "O flutter atrial típico apresenta frequência atrial de ~300 bpm, com condução AV geralmente 2:1, resultando em frequência ventricular de ~150 bpm."
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "Extrassístoles ventriculares são caracterizadas por:",
+      "options": [
+        "QRS estreito e pausa incompleta",
+        "QRS largo e pausa compensatória completa",
+        "Ausência de pausa compensatória",
+        "QRS normal e ondas P invertidas"
+      ],
+      "correct_answer": 1,
+      "explanation": "ESVs apresentam QRS largo e bizarre, seguidas tipicamente por pausa compensatória completa, pois o nó SA não é despolarizado."
+    }
+  ],
+  "scoring": {
+    "total_points": 7,
+    "passing_score": 5,
+    "time_limit_minutes": 12
+  },
+  "metadata": {
+    "difficulty": "intermediate",
+    "estimated_time": "8-10 minutos",
+    "learning_objectives": [
+      "Classificar arritmias por origem anatômica",
+      "Compreender mecanismos de formação",
+      "Identificar características ECG diferenciais"
+    ]
+  }
+}
