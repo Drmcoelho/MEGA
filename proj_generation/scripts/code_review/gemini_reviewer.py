@@ -15,15 +15,12 @@ def generate_code_suggestions_with_gemini(code_diff: str, gpt5_analysis: str) ->
         str: Um relatório de code review formatado em Markdown com as sugestões do Gemini.
     """
     try:
-        # Para a API do Gemini, a autenticação pode ser feita configurando a API key
-        # ou usando as credenciais obtidas via OAuth para outros serviços Google.
-        # Por simplicidade aqui, vamos assumir que a API key está configurada como variável de ambiente.
-        # Em um cenário real, usaríamos as credenciais de `get_google_credentials` se necessário.
-        api_key = os.getenv("GEMINI_API_KEY")
-        if not api_key:
-            raise ValueError("A variável de ambiente GEMINI_API_KEY não foi encontrada.")
-        
-        genai.configure(api_key=api_key)
+        # Autenticação com o Google via OAuth 2.0, conforme a configuração correta.
+        print("Obtendo credenciais do Google para o Gemini...")
+        credentials = get_google_credentials()
+        # O SDK do Gemini usa as credenciais do objeto `Credentials` diretamente.
+        genai.configure(credentials=credentials)
+        print("Credenciais do Google obtidas com sucesso.")
 
         model = genai.GenerativeModel('gemini-1.5-flash')
 

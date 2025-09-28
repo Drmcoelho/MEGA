@@ -33,9 +33,8 @@ jobs:
 
       - name: "Executar o Code Review Duplo"
         env:
-          # As secrets devem ser configuradas no repositório do GitHub
+          # A secret da OpenAI ainda é necessária. A autenticação do Google é feita via OAuth.
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.number }}
           GITHUB_REPOSITORY: ${{ github.repository }}

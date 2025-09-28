@@ -1,2 +1,12 @@
-pytest
-PyPDF2
+# Dependências para as ferramentas de automação e desenvolvimento
+
+# Para a API da OpenAI
+openai
+
+# Para a API do Google Gemini e autenticação
+google-generativeai
+google-auth-oauthlib
+google-api-python-client
+
+# Para carregar variáveis de ambiente (chaves de API)
+python-dotenv
