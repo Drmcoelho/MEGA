@@ -1,0 +1,99 @@
+{
+  "id": "ecg-intermediate-blocks-quiz",
+  "title": "Quiz: Bloqueios de Condução",
+  "description": "Avalie seu conhecimento sobre bloqueios de condução cardíaca",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "Um intervalo PR de 0,24 segundos caracteriza:",
+      "options": [
+        "Bloqueio AV de 2º grau Mobitz I",
+        "Bloqueio AV de 1º grau",
+        "Bloqueio AV de 3º grau",
+        "Condução AV normal"
+      ],
+      "correct_answer": 1,
+      "explanation": "Um intervalo PR > 0,20s caracteriza bloqueio AV de 1º grau, indicando atraso na condução através do nó AV."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "No bloqueio de ramo direito, o padrão típico em V1 é:",
+      "options": [
+        "QS",
+        "rSR' (orelha de coelho)",
+        "QR",
+        "R monofásico"
+      ],
+      "correct_answer": 1,
+      "explanation": "O BRD apresenta padrão rSR' em V1, conhecido como 'orelha de coelho', devido ao retardo na despolarização do ventrículo direito."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "Qual tipo de bloqueio AV tem maior risco de progressão para bloqueio completo?",
+      "options": [
+        "Bloqueio AV de 1º grau",
+        "Mobitz I (Wenckebach)",
+        "Mobitz II",
+        "Todos têm o mesmo risco"
+      ],
+      "correct_answer": 2,
+      "explanation": "Mobitz II tem maior risco de progressão para bloqueio AV completo pois geralmente ocorre abaixo do nó AV, no sistema His-Purkinje."
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "O bloqueio de ramo esquerdo sempre indica:",
+      "options": [
+        "Variação normal",
+        "Cardiopatia estrutural",
+        "Distúrbio eletrolítico",
+        "Efeito de medicação"
+      ],
+      "correct_answer": 1,
+      "explanation": "O BRE sempre indica cardiopatia estrutural subjacente, ao contrário do BRD que pode ser congênito ou funcional."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "No bloqueio AV de 3º grau, observamos:",
+      "options": [
+        "PR progressivamente prolongado",
+        "PR fixo com ondas P bloqueadas",
+        "Dissociação AV completa",
+        "Ausência de ondas P"
+      ],
+      "correct_answer": 2,
+      "explanation": "No bloqueio AV de 3º grau há dissociação AV completa, com átrios e ventrículos batendo independentemente."
+    },
+    {
+      "id": 6,
+      "type": "multiple_choice",
+      "question": "A duração do QRS no bloqueio de ramo é:",
+      "options": [
+        "< 0,08 segundos",
+        "0,08-0,10 segundos", 
+        "≥ 0,12 segundos",
+        "≥ 0,20 segundos"
+      ],
+      "correct_answer": 2,
+      "explanation": "Os bloqueios de ramo apresentam QRS ≥ 0,12s devido ao retardo na condução intraventricular."
+    }
+  ],
+  "scoring": {
+    "total_points": 6,
+    "passing_score": 4,
+    "time_limit_minutes": 15
+  },
+  "metadata": {
+    "difficulty": "intermediate",
+    "estimated_time": "10-12 minutos",
+    "learning_objectives": [
+      "Classificar tipos de bloqueios AV",
+      "Identificar padrões de bloqueios de ramo",
+      "Compreender implicações prognósticas"
+    ]
+  }
+}

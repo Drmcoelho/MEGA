@@ -1,0 +1,21 @@
+id: ecg-intermediate
+title: "ECG Intermediário - Interpretação Avançada"
+version: "1.0.0"
+objectives:
+  - "Diagnosticar bloqueios de condução complexos"
+  - "Identificar sinais de isquemia e infarto do miocárdio"
+  - "Reconhecer hipertrofias atriais e ventriculares"
+  - "Interpretar distúrbios eletrolíticos no ECG"
+  - "Analisar arritmias complexas e suas implicações clínicas"
+subskills:
+  - "Análise morfológica avançada"
+  - "Correlação clínico-eletrocardiográfica"
+  - "Diagnóstico diferencial"
+  - "Estratificação de risco"
+  - "Interpretação contextualizada"
+prerequisites:
+  - "ECG Básico - Fundamentos da Eletrocardiografia"
+  - "Anatomia cardiovascular detalhada"
+  - "Fisiopatologia cardíaca"
+estimated_time_hours: 12
+disclaimer: "Este módulo aborda interpretação avançada de ECG. Sempre considere o contexto clínico e busque supervisão médica especializada para casos complexos."
