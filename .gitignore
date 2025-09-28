@@ -1,0 +1,3 @@
+.adaptive/
+coverage/
+**/__pycache__/
