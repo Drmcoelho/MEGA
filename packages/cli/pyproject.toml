@@ -1,0 +1,13 @@
+[project]
+name = "mega-cli"
+version = "0.1.0"
+description = "CLI para MEGA"
+authors = [ { name = "MEGA" } ]
+requires-python = ">=3.11"
+dependencies = ["typer"]
+
+[project.scripts]
+mega = "mega_cli.main:app"
+
+[tool.setuptools.packages.find]
+where=["src"]

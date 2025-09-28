@@ -1,0 +1,9 @@
+[project]
+name = "mega-multi-agent"
+version = "0.1.0"
+description = "Sistema multi-agente pedagógico (skeleton)"
+authors = [{name="MEGA"}]
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where=["src"]

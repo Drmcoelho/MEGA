@@ -1,0 +1,12 @@
+[
+  {
+    "id": "q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "stem": "Qual componente representa a despolarização ventricular?",
+    "options": ["Onda P", "QRS", "Segmento ST", "Onda T"],
+    "answer": 1,
+    "rationale": "O complexo QRS reflete a despolarização ventricular.",
+    "subskills": ["ritmo_basico"]
+  }
+]

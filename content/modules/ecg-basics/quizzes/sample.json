@@ -1,0 +1,12 @@
+[
+  {
+    "id": "ecg-q1",
+    "type": "mcq",
+    "difficulty": "easy",
+    "stem": "Qual componente representa a despolarização ventricular?",
+    "options": ["Onda P", "Complexo QRS", "Segmento ST", "Onda T"],
+    "answer": 1,
+    "rationale": "O complexo QRS corresponde à despolarização dos ventrículos.",
+    "subskills": ["ondas"]
+  }
+]

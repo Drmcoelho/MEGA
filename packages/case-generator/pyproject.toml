@@ -1,0 +1,8 @@
+[project]
+name = "mega-case-generator"
+version = "0.2.0"
+description = "Gerador de casos clínicos multi-agente (robusto)"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where=["src"]

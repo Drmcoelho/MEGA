@@ -1,0 +1,13 @@
+id: ecg-intermediate
+title: ECG Intermediário
+version: 0.1.0
+objectives:
+  - Intervalos avançados
+  - Eixos cardíacos
+subskills:
+  - analise-eixo
+  - intervalos
+prerequisites:
+  - ecg-basics
+estimated_time_hours: 3
+disclaimer: Material educacional, não substitui julgamento clínico.
