@@ -2,7 +2,7 @@
 
 import google.generativeai as genai
 from proj_generation.scripts.auth.google_auth import get_google_credentials
-import os
+
 
 def generate_code_suggestions_with_gemini(code_diff: str, gpt5_analysis: str) -> str:
     """Recebe um diff de código e a análise do GPT-5, e usa o Gemini para gerar sugestões.
@@ -24,22 +24,18 @@ def generate_code_suggestions_with_gemini(code_diff: str, gpt5_analysis: str) ->
 
         model = genai.GenerativeModel('gemini-1.5-flash')
 
-        system_prompt = ("Você é um desenvolvedor de software pragmático e eficiente. "
-                         "Sua tarefa é receber um diff de código e uma análise de um arquiteto sênior (GPT-5). "
-                         "Com base na análise, você deve gerar sugestões de código concretas e, se possível, o código corrigido. "
-                         "Seu output deve ser um relatório claro e formatado em Markdown, contendo:
+        system_prompt = """Você é um desenvolvedor de software pragmático e eficiente. 
+Sua tarefa é receber um diff de código e uma análise de um arquiteto sênior (GPT-5). 
+Com base na análise, você deve gerar sugestões de código concretas e, se possível, o código corrigido. 
+Seu output deve ser um relatório claro e formatado em Markdown, contendo:
 
-""
-                         "1.  **Resumo da Análise do Arquiteto:** Um resumo breve do que o GPT-5 apontou.
-""
-                         "2.  **Pontos de Melhoria e Sugestões:** Para cada ponto levantado pelo arquiteto, apresente uma explicação e a sugestão de código.
-""
-                         "3.  **Blocos de Código Corrigido:** Mostre o bloco de código como ele deveria ficar após as correções.
+1.  **Resumo da Análise do Arquiteto:** Um resumo breve do que o GPT-5 apontou.
+2.  **Pontos de Melhoria e Sugestões:** Para cada ponto levantado pelo arquiteto, apresente uma explicação e a sugestão de código.
+3.  **Blocos de Código Corrigido:** Mostre o bloco de código como ele deveria ficar após as correções.
 
-""
-                         "Seja objetivo e ajude o desenvolvedor a entender exatamente o que precisa ser feito.")
+Seja objetivo e ajude o desenvolvedor a entender exatamente o que precisa ser feito."""
 
-        prompt = f"**Análise do Arquiteto (GPT-5):**
+        prompt = f"""**Análise do Arquiteto (GPT-5):**
 {gpt5_analysis}
 
 **Diff de Código Original:**
@@ -47,7 +43,7 @@ def generate_code_suggestions_with_gemini(code_diff: str, gpt5_analysis: str) ->
 {code_diff}
 ```
 
-Com base na análise e no diff, gere o relatório de code review com as sugestões de implementação."
+Com base na análise e no diff, gere o relatório de code review com as sugestões de implementação."""
 
         response = model.generate_content(prompt)
 
