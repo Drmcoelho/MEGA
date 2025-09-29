@@ -4,12 +4,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "14.2.3",
+    "next-intl": "^4.3.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "yaml": "2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.15",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.4",
+    "typescript": "^5.9.2"
   }
 }

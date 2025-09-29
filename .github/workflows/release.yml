@@ -1,0 +1,133 @@
+name: "Release"
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release (e.g., v1.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Setup Environment"
+        uses: ./.github/actions/setup-env
+
+      - name: "Install Dependencies"
+        run: |
+          # Python dependencies
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt --break-system-packages
+          
+          # Node dependencies
+          pnpm install
+
+      - name: "Build Python Packages"
+        run: |
+          # Install build tools
+          pip install build --break-system-packages
+          
+          # Build each Python package
+          for package in packages/*/; do
+            if [ -f "$package/pyproject.toml" ]; then
+              echo "Building $package..."
+              cd "$package"
+              python -m build
+              cd ../..
+            fi
+          done
+
+      - name: "Build Web Application"
+        run: |
+          cd apps/web
+          pnpm build
+
+      - name: "Extract Release Notes"
+        id: release_notes
+        run: |
+          # Extract version from tag
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            VERSION="${{ github.event.inputs.tag }}"
+          else
+            VERSION="${{ github.ref_name }}"
+          fi
+          
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          
+          # Generate basic release notes
+          cat > release_notes.md << EOF
+          # Release ${VERSION}
+          
+          ## 🚀 What's New
+          
+          This release includes the latest improvements and bug fixes for the MEGA project.
+          
+          ### 📦 Packages Included
+          - MEGA CLI tools
+          - Adaptive Engine
+          - Case Generator
+          - Content Engine
+          - Web Application
+          
+          ### 🔧 Installation
+          
+          \`\`\`bash
+          # Python packages
+          pip install mega-cli
+          
+          # Web application
+          # See deployment documentation
+          \`\`\`
+          
+          ### 📝 Changes
+          
+          For detailed changes, see the commit history and closed issues.
+          
+          ### 🐛 Bug Reports
+          
+          Please report any issues at: https://github.com/Drmcoelho/MEGA/issues
+          EOF
+
+      - name: "Create Release"
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.release_notes.outputs.version }}
+          name: "Release ${{ steps.release_notes.outputs.version }}"
+          bodyFile: "release_notes.md"
+          draft: false
+          prerelease: ${{ contains(steps.release_notes.outputs.version, '-') }}
+          artifacts: |
+            packages/*/dist/*
+            apps/web/.next/**/*
+          generateReleaseNotes: true
+
+      - name: "Post-Release Summary"
+        run: |
+          echo "## 🎉 Release Created Successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Release Details:" >> $GITHUB_STEP_SUMMARY
+          echo "- **Version**: ${{ steps.release_notes.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tag**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 Artifacts:" >> $GITHUB_STEP_SUMMARY
+          echo "- Python package distributions" >> $GITHUB_STEP_SUMMARY
+          echo "- Web application build" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Links:" >> $GITHUB_STEP_SUMMARY
+          echo "- [Release Page](https://github.com/Drmcoelho/MEGA/releases/tag/${{ steps.release_notes.outputs.version }})" >> $GITHUB_STEP_SUMMARY
