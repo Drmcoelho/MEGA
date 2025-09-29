@@ -1,0 +1,63 @@
+name: "Setup Development Environment"
+description: "Unified setup for Python 3.11 + Node 20 + pnpm for MEGA monorepo"
+
+inputs:
+  python-version:
+    description: "Python version to setup"
+    required: false
+    default: "3.11"
+  node-version:
+    description: "Node.js version to setup"
+    required: false
+    default: "20"
+  cache-key-suffix:
+    description: "Additional suffix for cache keys"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Setup Python"
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: 'pip'
+        cache-dependency-path: 'requirements-dev.txt'
+
+    - name: "Setup Node.js"
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'pnpm'
+        cache-dependency-path: 'pnpm-lock.yaml'
+
+    - name: "Setup pnpm"
+      uses: pnpm/action-setup@v3
+      with:
+        version: latest
+
+    - name: "Cache Python packages"
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements-dev.txt', 'packages/**/pyproject.toml') }}${{ inputs.cache-key-suffix }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: "Cache pnpm store"
+      uses: actions/cache@v4
+      with:
+        path: ~/.pnpm-store
+        key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}${{ inputs.cache-key-suffix }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-
+
+    - name: "Environment Info"
+      shell: bash
+      run: |
+        echo "### Development Environment Setup Complete" >> $GITHUB_STEP_SUMMARY
+        echo "- **Python**: $(python --version)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Node.js**: $(node --version)" >> $GITHUB_STEP_SUMMARY
+        echo "- **pnpm**: $(pnpm --version)" >> $GITHUB_STEP_SUMMARY
+        echo "- **OS**: ${{ runner.os }}" >> $GITHUB_STEP_SUMMARY

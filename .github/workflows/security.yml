@@ -1,0 +1,66 @@
+# Security Analysis Workflow
+# 
+# This workflow is disabled by default. To enable:
+# 1. Uncomment the workflow configuration below
+# 2. Enable CodeQL analysis in repository settings
+# 3. Review and adjust the security scanning configuration
+#
+# name: "Security Analysis"
+# 
+# on:
+#   push:
+#     branches: [main, develop]
+#   pull_request:
+#     branches: [main]
+#   schedule:
+#     - cron: '0 0 * * 1'  # Weekly on Monday
+# 
+# permissions:
+#   actions: read
+#   contents: read
+#   security-events: write
+# 
+# jobs:
+#   codeql:
+#     name: "CodeQL Analysis"
+#     runs-on: ubuntu-latest
+#     if: false  # Disabled until ready to enable
+#     
+#     strategy:
+#       matrix:
+#         language: ['javascript', 'python']
+#     
+#     steps:
+#       - name: "Checkout Repository"
+#         uses: actions/checkout@v4
+# 
+#       - name: "Initialize CodeQL"
+#         uses: github/codeql-action/init@v3
+#         with:
+#           languages: ${{ matrix.language }}
+# 
+#       - name: "Setup Environment"
+#         uses: ./.github/actions/setup-env
+# 
+#       - name: "Autobuild"
+#         uses: github/codeql-action/autobuild@v3
+# 
+#       - name: "Perform CodeQL Analysis"
+#         uses: github/codeql-action/analyze@v3
+# 
+#   dependency-review:
+#     name: "Dependency Review"
+#     runs-on: ubuntu-latest
+#     if: false  # Disabled until ready to enable
+#     
+#     steps:
+#       - name: "Checkout Repository"
+#         uses: actions/checkout@v4
+#       
+#       - name: "Dependency Review"
+#         uses: actions/dependency-review-action@v4
+
+# To enable this workflow:
+# 1. Change `if: false` to `if: true` or remove the condition
+# 2. Uncomment the workflow configuration above
+# 3. Ensure repository has appropriate security settings enabled
