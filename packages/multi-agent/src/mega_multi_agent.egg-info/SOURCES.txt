@@ -1,0 +1,11 @@
+pyproject.toml
+src/mega_multi_agent.egg-info/PKG-INFO
+src/mega_multi_agent.egg-info/SOURCES.txt
+src/mega_multi_agent.egg-info/dependency_links.txt
+src/mega_multi_agent.egg-info/top_level.txt
+src/multi_agent/base.py
+src/multi_agent/critic.py
+src/multi_agent/explainer.py
+src/multi_agent/failsafe.py
+src/multi_agent/session.py
+src/multi_agent/tutor.py
