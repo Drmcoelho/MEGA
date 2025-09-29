@@ -1,0 +1,38 @@
+# Node/Next.js (frontend)
+node_modules/
+.next/
+out/
+.pnpm/
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Python/FastAPI (backend)
+__pycache__/
+*.py[cod]
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Caches and build artifacts
+.cache/
+coverage/
+dist/
+
+# Large binaries that should be tracked with Git LFS
+# See .gitattributes for LFS configuration
+# *.zip
+# *.gz
+# *.tar
+# *.node
+# *.pdf
+# *.png
+
+# Other
+Thumbs.db
