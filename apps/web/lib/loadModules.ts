@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import YAML from 'yaml';
+import fs from "fs";
+import path from "path";
+import YAML from "yaml";
 
 export interface ModuleManifest {
   id: string;
@@ -14,21 +14,23 @@ export interface ModuleManifest {
 }
 
 export function loadManifests(): ModuleManifest[] {
-  const base = path.join(process.cwd(), 'content', 'modules');
+  const base = path.join(process.cwd(), "content", "modules");
   if (!fs.existsSync(base)) return [];
-  const dirs = fs.readdirSync(base).filter(d => fs.statSync(path.join(base, d)).isDirectory());
+  const dirs = fs
+    .readdirSync(base)
+    .filter((d) => fs.statSync(path.join(base, d)).isDirectory());
   const manifests: ModuleManifest[] = [];
   for (const d of dirs) {
-    const manifestPath = path.join(base, d, 'manifest.yaml');
+    const manifestPath = path.join(base, d, "manifest.yaml");
     if (fs.existsSync(manifestPath)) {
-      const raw = fs.readFileSync(manifestPath, 'utf-8');
+      const raw = fs.readFileSync(manifestPath, "utf-8");
       try {
         const data = YAML.parse(raw);
         manifests.push(data);
       } catch (e) {
-        console.warn('Erro ao parsear manifest', manifestPath, e);
+        console.warn("Erro ao parsear manifest", manifestPath, e);
       }
     }
   }
-  return manifests.sort((a,b)=>a.id.localeCompare(b.id));
+  return manifests.sort((a, b) => a.id.localeCompare(b.id));
 }

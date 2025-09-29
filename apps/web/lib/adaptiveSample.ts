@@ -7,9 +7,9 @@ export function sampleMastery(): MasterySnapshot {
     "fundamentos-ecg": 42,
     "morfologia-basica": 65,
     "analise-eixo": 30,
-    "intervalos": 55,
-    "regularidade": 20,
-    "largura-qrs": 10
+    intervalos: 55,
+    regularidade: 20,
+    "largura-qrs": 10,
   };
 }
 

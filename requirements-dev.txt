@@ -10,3 +10,11 @@ google-api-python-client
 
 # Para carregar variáveis de ambiente (chaves de API)
 python-dotenv
+
+# Ferramentas de Qualidade de Código
+ruff
+pip-audit
+
+# Backend
+fastapi
+uvicorn

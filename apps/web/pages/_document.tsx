@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDoc extends Document {
   render() {
@@ -18,7 +18,7 @@ export default class MyDoc extends Document {
                 window.addEventListener('load', () => {
                   navigator.serviceWorker.register('/sw.js').catch(console.error);
                 });
-              }`
+              }`,
             }}
           />
         </body>

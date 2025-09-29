@@ -1,4 +1,18 @@
 #!/bin/sh
+
+# Run lint, format, and type-check for the frontend
+echo "Running frontend checks..."
+pnpm --filter mega-frontend lint
+pnpm --filter mega-frontend format
+pnpm --filter mega-frontend type-check
+
+# Run lint, format, and type-check for the python packages
+echo "Running python checks..."
+source venv/bin/activate
+pnpm lint:py
+pnpm format:py
+pnpm type-check:py
+
 for file in $(git diff --cached --name-only --diff-filter=ACM); do
   if [ -f "$file" ]; then
     size=$(stat -f%z "$file")

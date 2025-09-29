@@ -6,6 +6,9 @@
     "typescript": "^5.4.0"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint:py": "ruff check packages/*/src",
+    "format:py": "black packages/*/src && isort packages/*/src",
+    "type-check:py": "mypy packages/*/src"
   }
 }
