@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: mega-multi-agent
+Version: 0.1.0
+Summary: Sistema multi-agente pedagógico (skeleton)
+Author: MEGA
+Requires-Python: >=3.11
