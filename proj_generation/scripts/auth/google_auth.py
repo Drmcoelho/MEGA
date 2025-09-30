@@ -5,7 +5,11 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 # Escopos para a API do Google Drive e outras que possamos usar.
-SCOPES = ['https://www.googleapis.com/auth/drive.readonly', 'https://www.googleapis.com/auth/generative-language.retriever']
+SCOPES = [
+    "https://www.googleapis.com/auth/drive.readonly",
+    "https://www.googleapis.com/auth/generative-language.retriever",
+]
+
 
 def get_google_credentials():
     """Obtém as credenciais do Google, usando um fluxo OAuth 2.0 se necessário.
@@ -19,8 +23,8 @@ def get_google_credentials():
     """
     creds = None
     # O arquivo token.json armazena os tokens de acesso e de atualização do usuário.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    if os.path.exists("token.json"):
+        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
 
     # Se não houver credenciais válidas, deixa o usuário fazer login.
     if not creds or not creds.valid:
@@ -28,24 +32,23 @@ def get_google_credentials():
             # Idealmente, o token seria atualizado. Para um script de CLI,
             # podemos simplesmente re-autenticar.
             print("Credenciais expiradas. Por favor, autentique-se novamente.")
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
             creds = flow.run_local_server(port=0)
         else:
             print("Nenhuma credencial encontrada. Por favor, autentique-se.")
             # `credentials.json` deve ser baixado do Google Cloud Console
             # e colocado no mesmo diretório.
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
             creds = flow.run_local_server(port=0)
 
         # Salva as credenciais para a próxima execução
-        with open('token.json', 'w') as token:
+        with open("token.json", "w") as token:
             token.write(creds.to_json())
 
     return creds
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Exemplo de como usar a função
     print("Obtendo credenciais do Google...")
     credentials = get_google_credentials()

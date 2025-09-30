@@ -9,6 +9,7 @@ from dataclasses import asdict
 
 log = get_logger("adaptive.engine")
 
+
 class AdaptiveEngine:
     def __init__(self, backend: str | None = None, path: str | None = None):
         a = CONFIG.adaptive
@@ -24,16 +25,16 @@ class AdaptiveEngine:
         self.scheduler = IntervalScheduler()
 
     def rate_item(self, item_id: str, rating: int):
-        if rating not in (0,1,2):
+        if rating not in (0, 1, 2):
             raise InvalidRatingError(rating)
-        last_interval,_ = self.store.get_interval(item_id)
+        last_interval, _ = self.store.get_interval(item_id)
         result = self.scheduler.next(item_id, last_interval, rating)
         self.store.set_interval(item_id, result.next_interval)
         log.debug("Rated item %s => %s", item_id, asdict(result))
         return result
 
     def update_mastery(self, subskill: str, rating: int):
-        if rating not in (0,1,2):
+        if rating not in (0, 1, 2):
             raise InvalidRatingError(rating)
         self.store.update_mastery(subskill, rating)
         snap = self.store.mastery_snapshot()

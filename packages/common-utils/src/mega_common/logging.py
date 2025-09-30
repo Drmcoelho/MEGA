@@ -6,5 +6,6 @@ _FMT = CONFIG.logging.format
 
 logging.basicConfig(level=_LEVEL, format=_FMT)
 
+
 def get_logger(name: str):
     return logging.getLogger(name)

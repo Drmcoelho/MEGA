@@ -3,7 +3,10 @@
 import os
 import sys
 from proj_generation.scripts.code_review.openai_reviewer import analyze_code_with_gpt5
-from proj_generation.scripts.code_review.gemini_reviewer import generate_code_suggestions_with_gemini
+from proj_generation.scripts.code_review.gemini_reviewer import (
+    generate_code_suggestions_with_gemini,
+)
+
 
 def get_pr_diff():
     """Obtém o diff do Pull Request.
@@ -19,9 +22,9 @@ def get_pr_diff():
     if len(sys.argv) > 1:
         diff_file = sys.argv[1]
         if os.path.exists(diff_file):
-            with open(diff_file, 'r') as f:
+            with open(diff_file, "r") as f:
                 return f.read()
-    
+
     # Fallback para um diff de exemplo se nenhum arquivo for fornecido
     print("Aviso: Nenhum arquivo de diff fornecido. Usando diff de exemplo.")
     return """
@@ -34,6 +37,7 @@ def get_pr_diff():
 +    # Nova lógica mais complexa
 +    return (x * 2) + 1
     """
+
 
 def post_comment_to_pr(comment: str):
     """Posta um comentário no Pull Request.
@@ -53,6 +57,7 @@ def post_comment_to_pr(comment: str):
     # repo_name = os.getenv("GITHUB_REPOSITORY")
     # ... fazer a chamada para a API do GitHub ...
 
+
 def main():
     """Função principal que orquestra o processo de code review duplo."""
     print("Iniciando processo de Code Review Duplo...")
@@ -68,7 +73,9 @@ def main():
     print("Análise do GPT-5 recebida.")
 
     # 3. Geração de sugestões com o Gemini
-    print("\n[Passo 3/4] Enviando para o Gemini (Desenvolvedor Executor) gerar sugestões...")
+    print(
+        "\n[Passo 3/4] Enviando para o Gemini (Desenvolvedor Executor) gerar sugestões..."
+    )
     gemini_suggestions = generate_code_suggestions_with_gemini(pr_diff, gpt5_analysis)
     print("Sugestões do Gemini recebidas.")
 
@@ -91,9 +98,10 @@ Olá! Analisei as suas mudanças com a ajuda de um time de IAs.
 ---
 
 *Este comentário foi gerado automaticamente. As sugestões devem ser revisadas por um humano.*"""
-    
+
     post_comment_to_pr(final_comment)
     print("\nProcesso de Code Review Duplo concluído!")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

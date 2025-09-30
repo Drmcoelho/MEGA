@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 # Carrega as variáveis de ambiente de um arquivo .env
 load_dotenv()
 
+
 def get_openai_api_key():
     """Obtém a chave da API da OpenAI a partir das variáveis de ambiente.
 
@@ -21,11 +22,14 @@ def get_openai_api_key():
     """
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise ValueError("A variável de ambiente OPENAI_API_KEY não foi encontrada. "
-                         "Por favor, crie um arquivo .env na raiz do projeto e adicione a chave.")
+        raise ValueError(
+            "A variável de ambiente OPENAI_API_KEY não foi encontrada. "
+            "Por favor, crie um arquivo .env na raiz do projeto e adicione a chave."
+        )
     return api_key
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Exemplo de como usar a função
     try:
         print("Obtendo a chave da API da OpenAI...")

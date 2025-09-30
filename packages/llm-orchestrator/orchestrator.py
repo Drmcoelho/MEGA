@@ -1,11 +1,14 @@
 import os
 from typing import Literal, Dict
 
+
 class LLMOrchestrator:
     def __init__(self, strategy: str = "cost-aware"):
         self.strategy = strategy
 
-    def generate(self, prompt: str, intent: Literal["case", "quiz", "explanation"]="case") -> Dict:
+    def generate(
+        self, prompt: str, intent: Literal["case", "quiz", "explanation"] = "case"
+    ) -> Dict:
         """
         Estratégia simples (placeholder):
         1. Tenta modelo local (Mistral via API local/Ollama)
@@ -18,12 +21,7 @@ class LLMOrchestrator:
         else:
             refined = draft
         final = self._gpt_polish(refined, intent)
-        return {
-            "prompt": prompt,
-            "draft": draft,
-            "refined": refined,
-            "final": final
-        }
+        return {"prompt": prompt, "draft": draft, "refined": refined, "final": final}
 
     def _local_infer(self, prompt: str) -> str:
         # TODO: chamar ollama/mistral

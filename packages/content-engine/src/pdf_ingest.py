@@ -14,8 +14,10 @@ except ImportError:  # pragma: no cover
 
 INDEX_PATH = Path(CONFIG.pdf.index_path)
 
+
 def _hash_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
 
 def extract_text(pdf_path: Path) -> Dict[str, Any]:
     if not PyPDF2:
@@ -36,8 +38,9 @@ def extract_text(pdf_path: Path) -> Dict[str, Any]:
             text_parts.append(t)
     full = "\n".join(text_parts)
     meta["chars"] = len(full)
-    meta["preview"] = full[:CONFIG.pdf.preview_chars]
+    meta["preview"] = full[: CONFIG.pdf.preview_chars]
     return meta
+
 
 def load_index() -> Dict[str, Any]:
     if INDEX_PATH.exists():
@@ -47,11 +50,13 @@ def load_index() -> Dict[str, Any]:
             log.warning("Falha ao carregar índice PDF: %s", e)
     return {}
 
+
 def save_index(idx: Dict[str, Any]):
     INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
     tmp = INDEX_PATH.with_suffix(".tmp")
     tmp.write_text(json.dumps(idx, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(INDEX_PATH)
+
 
 def index_pdf(path: Path):
     log.info("Indexando PDF: %s", path)
@@ -61,6 +66,7 @@ def index_pdf(path: Path):
     save_index(idx)
     return meta
 
+
 def batch_index(target: str):
     p = Path(target)
     results = []
@@ -69,7 +75,7 @@ def batch_index(target: str):
     else:
         for root, _, files in os.walk(p):
             for f in files:
-                fp = Path(root)/f
+                fp = Path(root) / f
                 if fp.suffix.lower() in CONFIG.pdf.allowed_extensions:
                     try:
                         results.append(index_pdf(fp))

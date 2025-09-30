@@ -6,6 +6,7 @@ from pathlib import Path
 
 DEFAULT_CONFIG_PATH = Path("mega.config.yaml")
 
+
 @dataclass
 class AdaptiveConfig:
     backend: str = "json"
@@ -17,27 +18,32 @@ class AdaptiveConfig:
     growth_factor_correct: float = 2.2
     mastery_scale: int = 2
 
+
 @dataclass
 class PDFConfig:
     index_path: str = "data/pdf_index.json"
     preview_chars: int = 500
     allowed_extensions: list[str] = field(default_factory=lambda: [".pdf"])
 
+
 @dataclass
 class LoggingConfig:
     level: str = "INFO"
     format: str = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+
 
 @dataclass
 class CLIConfig:
     color: bool = True
     json_pretty: bool = True
 
+
 @dataclass
 class CaseGenConfig:
     include_explainer: bool = True
     include_critic: bool = True
     include_failsafe: bool = True
+
 
 @dataclass
 class MegaConfig:
@@ -62,5 +68,6 @@ class MegaConfig:
             cli=CLIConfig(**data.get("cli", {})),
             case_generator=CaseGenConfig(**data.get("case_generator", {})),
         )
+
 
 CONFIG = MegaConfig.load(os.getenv("MEGA_CONFIG_PATH"))

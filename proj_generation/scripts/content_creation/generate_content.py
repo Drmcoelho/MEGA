@@ -4,8 +4,13 @@ import sys
 import os
 import json
 from proj_generation.scripts.content_creation.drive_reader import read_drive_document
-from proj_generation.scripts.content_creation.gpt5_expander import expand_content_with_gpt5
-from proj_generation.scripts.content_creation.gemini_quizzer import create_quiz_with_gemini
+from proj_generation.scripts.content_creation.gpt5_expander import (
+    expand_content_with_gpt5,
+)
+from proj_generation.scripts.content_creation.gemini_quizzer import (
+    create_quiz_with_gemini,
+)
+
 
 def save_content(module_name: str, expanded_content: str, quiz_json: str):
     """Salva o conteúdo gerado em arquivos na estrutura do projeto.
@@ -22,7 +27,7 @@ def save_content(module_name: str, expanded_content: str, quiz_json: str):
 
         # Salva o conteúdo principal
         content_path = os.path.join(output_dir, "content.md")
-        with open(content_path, 'w', encoding='utf-8') as f:
+        with open(content_path, "w", encoding="utf-8") as f:
             f.write(expanded_content)
         print(f"Conteúdo salvo em: {content_path}")
 
@@ -31,29 +36,36 @@ def save_content(module_name: str, expanded_content: str, quiz_json: str):
         # Valida e formata o JSON antes de salvar
         try:
             quiz_data = json.loads(quiz_json)
-            with open(quiz_path, 'w', encoding='utf-8') as f:
+            with open(quiz_path, "w", encoding="utf-8") as f:
                 json.dump(quiz_data, f, ensure_ascii=False, indent=2)
             print(f"Quiz salvo em: {quiz_path}")
         except json.JSONDecodeError:
-            print("Erro: O quiz gerado pelo Gemini não é um JSON válido. Salvando como texto.")
+            print(
+                "Erro: O quiz gerado pelo Gemini não é um JSON válido. Salvando como texto."
+            )
             error_path = os.path.join(output_dir, "quiz_error.txt")
-            with open(error_path, 'w', encoding='utf-8') as f:
+            with open(error_path, "w", encoding="utf-8") as f:
                 f.write(quiz_json)
             print(f"Output do quiz (inválido) salvo em: {error_path}")
 
     except Exception as e:
         print(f"Erro ao salvar os arquivos: {e}")
 
+
 def main():
     """Função principal que orquestra a geração de conteúdo."""
     if len(sys.argv) < 3:
-        print("Uso: python -m proj_generation.scripts.content_creation.generate_content <google_doc_id> <nome_do_modulo>")
+        print(
+            "Uso: python -m proj_generation.scripts.content_creation.generate_content <google_doc_id> <nome_do_modulo>"
+        )
         sys.exit(1)
 
     doc_id = sys.argv[1]
     module_name = sys.argv[2]
 
-    print(f"Iniciando geração de conteúdo para o módulo: '{module_name}' a partir do Google Doc ID: {doc_id}")
+    print(
+        f"Iniciando geração de conteúdo para o módulo: '{module_name}' a partir do Google Doc ID: {doc_id}"
+    )
 
     # 1. Ler o rascunho do Google Drive
     print("\n[Passo 1/4] Lendo rascunho do Google Drive...")
@@ -87,5 +99,6 @@ def main():
 
     print(f"\nProcesso de geração de conteúdo para o módulo '{module_name}' concluído!")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

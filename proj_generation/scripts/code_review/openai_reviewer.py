@@ -3,6 +3,7 @@
 from openai import OpenAI
 from proj_generation.scripts.auth.openai_auth import get_openai_api_key
 
+
 def analyze_code_with_gpt5(code_diff: str) -> str:
     """Envia um diff de código para o GPT-5 e retorna uma análise de alto nível.
 
@@ -32,8 +33,11 @@ Não sugira o código corrigido, apenas aponte os problemas e a direção para a
             model="gpt-4o",  # Usando gpt-4o como um substituto para o futuro GPT-5
             messages=[
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": f"Analise o seguinte diff:\n\n```diff\n{code_diff}\n```"}
-            ]
+                {
+                    "role": "user",
+                    "content": f"Analise o seguinte diff:\n\n```diff\n{code_diff}\n```",
+                },
+            ],
         )
 
         return response.choices[0].message.content
@@ -41,7 +45,8 @@ Não sugira o código corrigido, apenas aponte os problemas e a direção para a
     except Exception as e:
         return f"Erro ao analisar o código com a OpenAI: {e}"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Exemplo de um diff de código para teste
     test_diff = """
     --- a/main.py

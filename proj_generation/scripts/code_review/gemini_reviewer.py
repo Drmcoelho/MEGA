@@ -22,7 +22,7 @@ def generate_code_suggestions_with_gemini(code_diff: str, gpt5_analysis: str) ->
         genai.configure(credentials=credentials)
         print("Credenciais do Google obtidas com sucesso.")
 
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel("gemini-1.5-flash")
 
         system_prompt = """Você é um desenvolvedor de software pragmático e eficiente. 
 Sua tarefa é receber um diff de código e uma análise de um arquiteto sênior (GPT-5). 
@@ -52,7 +52,8 @@ Com base na análise e no diff, gere o relatório de code review com as sugestõ
     except Exception as e:
         return f"Erro ao gerar sugestões com o Gemini: {e}"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Exemplo de um diff e análise para teste
     test_diff = """
     --- a/main.py
@@ -68,12 +69,16 @@ if __name__ == '__main__':
 +    print(f"A soma é: {result[0]}, e a média é: {result[1]}")
     """
 
-    gpt5_analysis_example = ("A função `calculate_sum` agora tem um nome enganoso, pois retorna mais do que apenas a soma. "
-                             "Além disso, a modificação na chamada `print` pode levar a erros se o chamador não esperar uma tupla. "
-                             "Sugira renomear a função e talvez retornar um objeto mais descritivo, como um dicionário.")
+    gpt5_analysis_example = (
+        "A função `calculate_sum` agora tem um nome enganoso, pois retorna mais do que apenas a soma. "
+        "Além disso, a modificação na chamada `print` pode levar a erros se o chamador não esperar uma tupla. "
+        "Sugira renomear a função e talvez retornar um objeto mais descritivo, como um dicionário."
+    )
 
     print("Gerando sugestões de código com o Gemini...")
-    suggestions = generate_code_suggestions_with_gemini(test_diff, gpt5_analysis_example)
+    suggestions = generate_code_suggestions_with_gemini(
+        test_diff, gpt5_analysis_example
+    )
     print("\n--- Relatório de Code Review do Gemini ---")
     print(suggestions)
     print("\n-----------------------------------------")

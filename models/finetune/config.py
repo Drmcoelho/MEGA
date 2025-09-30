@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class FinetuneConfig:
     base_model: str = "mistral-7b-instruct"

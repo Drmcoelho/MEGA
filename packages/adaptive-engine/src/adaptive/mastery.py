@@ -3,6 +3,7 @@ class MasteryTracker:
     Mastery por subskill: média ponderada incremental.
     rating: 0 erro, 1 parcial, 2 correto.
     """
+
     def __init__(self):
         self._stats = {}  # subskill -> (score_sum, attempts)
 

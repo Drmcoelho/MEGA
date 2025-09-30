@@ -1,5 +1,6 @@
 from .base import Agent
 
+
 class CriticAgent(Agent):
     role = "critic"
 
@@ -8,4 +9,4 @@ class CriticAgent(Agent):
         flags = []
         if "sempre" in passage.lower():
             flags.append("Uso de afirmação absoluta ('sempre').")
-        return {"flags": flags, "ok": len(flags)==0}
+        return {"flags": flags, "ok": len(flags) == 0}

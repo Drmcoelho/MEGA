@@ -1,9 +1,10 @@
 from .base import Agent
 
+
 class ExplainerAgent(Agent):
     role = "explainer"
 
-    def act(self, concept: str, level: str="basico"):
+    def act(self, concept: str, level: str = "basico"):
         if level == "basico":
             return f"{concept}: Explicação simples inicial."
         if level == "intermediario":

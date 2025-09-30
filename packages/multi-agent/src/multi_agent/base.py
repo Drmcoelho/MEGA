@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Agent(ABC):
     role: str = "generic"
 
@@ -7,5 +8,4 @@ class Agent(ABC):
         self.orchestrator = orchestrator
 
     @abstractmethod
-    def act(self, **kwargs):
-        ...
+    def act(self, **kwargs): ...

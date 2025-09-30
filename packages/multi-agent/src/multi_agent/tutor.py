@@ -1,5 +1,6 @@
 from .base import Agent
 
+
 class TutorAgent(Agent):
     role = "tutor"
 
@@ -9,6 +10,6 @@ class TutorAgent(Agent):
                 f"Objetivo principal: Introduzir {topic}",
                 "Passo 1: Avaliar conhecimento prévio",
                 "Passo 2: Apresentar conceitos nucleares",
-                "Passo 3: Quiz diagnóstico"
+                "Passo 3: Quiz diagnóstico",
             ]
         }

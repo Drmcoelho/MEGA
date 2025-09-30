@@ -3,6 +3,7 @@ from .critic import CriticAgent
 from .explainer import ExplainerAgent
 from .failsafe import FailSafeAgent
 
+
 class MultiAgentSession:
     def __init__(self, orchestrator=None):
         self.tutor = TutorAgent(orchestrator)
