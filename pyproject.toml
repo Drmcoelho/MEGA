@@ -1,0 +1,62 @@
+[tool.ruff]
+# Python version
+target-version = "py311"
+
+# Line length
+line-length = 120
+
+# Directories to check
+include = ["packages/**/*.py", "scripts/**/*.py"]
+
+# Directories to exclude
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+]
+
+[tool.ruff.lint]
+# Enable specific rule sets
+select = [
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F",     # pyflakes
+    "I",     # isort
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "B",     # flake8-bugbear
+    "C4",    # flake8-comprehensions
+    "S",     # flake8-bandit (security)
+    "T20",   # flake8-print
+    "SIM",   # flake8-simplify
+    "RET",   # flake8-return
+    "ARG",   # flake8-unused-arguments
+    "PTH",   # flake8-use-pathlib
+]
+
+# Ignore specific rules
+ignore = [
+    "E501",   # Line too long (handled by formatter)
+    "S101",   # Use of assert (allowed in tests)
+    "S608",   # SQL injection (we use parameterized queries)
+]
+
+# Allow autofix for specific rules
+fixable = ["I", "F401", "UP", "C4"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore specific rules in test files
+"**/tests/**/*.py" = ["S101", "ARG"]
+"**/test_*.py" = ["S101", "ARG"]
+
+# Ignore import rules in __init__.py
+"**/__init__.py" = ["F401", "F403"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["mega_common", "adaptive", "case_generator", "content_engine", "multi_agent", "llm_orchestrator", "mega_cli"]
