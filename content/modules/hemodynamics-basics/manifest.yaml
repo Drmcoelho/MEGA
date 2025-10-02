@@ -1,0 +1,12 @@
+id: hemodynamics-basics
+title: Hemodinâmica Básica
+version: 0.1.0
+objectives:
+  - Conceitos de pré-carga e pós-carga
+  - Relação pressão-volume
+subskills:
+  - pre-carga
+  - pos-carga
+prerequisites: []
+estimated_time_hours: 2
+disclaimer: Material educacional, não substitui julgamento clínico.

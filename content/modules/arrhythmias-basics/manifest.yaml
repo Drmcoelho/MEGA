@@ -1,0 +1,13 @@
+id: arrhythmias-basics
+title: Arritmias Básicas
+version: 0.1.0
+objectives:
+  - Identificar taquicardias comuns
+  - Diferenciar ritmos regulares e irregulares
+subskills:
+  - regularidade
+  - largura-qrs
+prerequisites:
+  - ecg-basics
+estimated_time_hours: 2
+disclaimer: Material educacional, não substitui julgamento clínico.

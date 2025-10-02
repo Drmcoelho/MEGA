@@ -1,0 +1,7 @@
+[ ] Completar conteúdo dos 4 módulos base
+[ ] Adicionar PWA (service worker + manifest)
+[ ] Implementar i18n infra
+[ ] Licenciamento final
+[ ] Motor adaptativo (interval scheduler + mastery)
+[ ] Pipeline fine-tuning scripts reais
+[ ] Multi-agente (tutor, crítico, explicador, fail-safe)

@@ -1,0 +1,12 @@
+id: ecg-basics
+title: ECG Básico
+version: 0.1.0
+objectives:
+  - Reconhecer derivações
+  - Identificar ondas P, QRS, T
+subskills:
+  - fundamentos-ecg
+  - morfologia-basica
+prerequisites: []
+estimated_time_hours: 2
+disclaimer: Material educacional, não substitui julgamento clínico.

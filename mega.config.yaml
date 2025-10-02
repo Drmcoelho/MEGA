@@ -1,0 +1,24 @@
+version: 0.1.0
+adaptive:
+  backend: json            # json | sqlite
+  path: .adaptive/data.json
+  min_interval_seconds: 10
+  medium_interval_seconds: 30
+  long_interval_seconds: 60
+  growth_factor_partial: 1.4
+  growth_factor_correct: 2.2
+  mastery_scale: 2          # rating max
+pdf:
+  index_path: data/pdf_index.json
+  preview_chars: 500
+  allowed_extensions: [".pdf"]
+logging:
+  level: INFO
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+cli:
+  color: true
+  json_pretty: true
+case_generator:
+  include_explainer: true
+  include_critic: true
+  include_failsafe: true

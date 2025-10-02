@@ -1,0 +1,42 @@
+# .github/workflows/code_review.yml
+
+name: "Code Review Duplo com IA"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  dual_llm_code_review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout do Repositório"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Necessário para obter o diff completo
+
+      - name: "Configurar Python"
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: "Instalar Dependências"
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt # Assumindo que as dependências estarão em requirements-dev.txt
+
+      - name: "Obter o Diff do PR"
+        id: get_diff
+        run: |
+          git diff ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} > pr.diff
+          echo "::set-output name=diff_file::pr.diff"
+
+      - name: "Executar o Code Review Duplo"
+        env:
+          # A secret da OpenAI ainda é necessária. A autenticação do Google é feita via OAuth.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python proj_generation/scripts/main.py ${{ steps.get_diff.outputs.diff_file }}
