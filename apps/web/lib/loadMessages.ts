@@ -2,7 +2,12 @@ import path from 'path';
 import fs from 'fs';
 
 export async function loadMessages(locale: string) {
-  const file = path.join(process.cwd(), 'apps', 'web', 'messages', `${locale}.json`);
+  // Try web app directory first (when building from apps/web)
+  let file = path.join(process.cwd(), 'messages', `${locale}.json`);
+  if (!fs.existsSync(file)) {
+    // Fallback to repo root structure (when building from monorepo root)
+    file = path.join(process.cwd(), 'apps', 'web', 'messages', `${locale}.json`);
+  }
   if (!fs.existsSync(file)) {
     return {};
   }
