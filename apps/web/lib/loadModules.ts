@@ -14,7 +14,12 @@ export interface ModuleManifest {
 }
 
 export function loadManifests(): ModuleManifest[] {
-  const base = path.join(process.cwd(), 'content', 'modules');
+  // Try from repo root first (when building from apps/web, go up two levels)
+  let base = path.join(process.cwd(), '..', '..', 'content', 'modules');
+  if (!fs.existsSync(base)) {
+    // Fallback to direct path (when building from monorepo root)
+    base = path.join(process.cwd(), 'content', 'modules');
+  }
   if (!fs.existsSync(base)) return [];
   const dirs = fs.readdirSync(base).filter(d => fs.statSync(path.join(base, d)).isDirectory());
   const manifests: ModuleManifest[] = [];
