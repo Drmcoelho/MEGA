@@ -10,3 +10,10 @@ google-api-python-client
 
 # Para carregar variáveis de ambiente (chaves de API)
 python-dotenv
+
+# Para validação de manifests
+pydantic>=2.0
+pyyaml
+
+# Para testes
+pytest
