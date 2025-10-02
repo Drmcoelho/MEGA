@@ -12,7 +12,7 @@ from pydantic import ValidationError
 # Import from scripts directory
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-from validate_manifests import ModuleManifest, validate_manifest
+from validate_manifests import ModuleManifest, validate_manifest, find_manifests
 
 
 def test_valid_manifest():
@@ -141,3 +141,26 @@ def test_estimated_time_can_be_float():
         estimated_time_hours=2.5
     )
     assert manifest.estimated_time_hours == 2.5
+
+
+def test_all_real_manifests_are_valid():
+    """Integration test: validate all actual manifests in the project."""
+    repo_root = Path(__file__).parent.parent
+    modules_dir = repo_root / "content" / "modules"
+    
+    if not modules_dir.exists():
+        pytest.skip("Modules directory not found")
+    
+    manifests = find_manifests(modules_dir)
+    
+    if not manifests:
+        pytest.skip("No manifests found")
+    
+    errors = []
+    for manifest_path in manifests:
+        module_name = manifest_path.parent.name
+        is_valid, error_msg = validate_manifest(manifest_path)
+        if not is_valid:
+            errors.append(f"{module_name}: {error_msg}")
+    
+    assert len(errors) == 0, f"Found {len(errors)} invalid manifest(s):\n" + "\n".join(errors)
