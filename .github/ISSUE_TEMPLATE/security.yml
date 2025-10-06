@@ -1,0 +1,49 @@
+name: 🔒 Security Vulnerability
+description: Reportar uma vulnerabilidade de segurança (PRIVADO)
+title: "[SECURITY] "
+labels: ["security", "critical"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **AVISO:** NÃO reporte vulnerabilidades de segurança publicamente!
+        
+        Por favor, envie relatórios de segurança privadamente através de:
+        - GitHub Security Advisories: https://github.com/Drmcoelho/MEGA/security/advisories
+        - Email: [adicionar email de segurança]
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição da Vulnerabilidade
+      description: Descreva a vulnerabilidade (será mantido privado)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severidade Estimada
+      options:
+        - Crítica
+        - Alta
+        - Média
+        - Baixa
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacto Potencial
+      description: Qual o impacto desta vulnerabilidade?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Passos para Reproduzir
+      description: Como reproduzir a vulnerabilidade
+    validations:
+      required: true

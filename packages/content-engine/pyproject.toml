@@ -1,16 +1,13 @@
 [project]
-name = "mega-cli"
+name = "mega-content-engine"
 version = "0.1.0"
-description = "CLI para MEGA"
-authors = [ { name = "MEGA" } ]
+description = "Content engine for PDF ingestion and indexing"
 requires-python = ">=3.11"
-dependencies = ["typer"]
-
-[project.scripts]
-mega = "mega_cli.main:app"
+dependencies = ["PyPDF2"]
 
 [tool.setuptools.packages.find]
-where=["src"]
+where = ["src"]
+
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
