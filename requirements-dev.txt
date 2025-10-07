@@ -10,3 +10,5 @@ google-api-python-client
 
 # Para carregar variáveis de ambiente (chaves de API)
 python-dotenv
+pytest
+PyPDF2
